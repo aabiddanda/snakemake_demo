@@ -1,0 +1,12 @@
+name: msprime 
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - msprime>=1.0.0
+  - bcftools >= 1.12.0
+  - pip
+  - pip:
+    - numpy
+    - scipy
+    - tszip
