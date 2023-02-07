@@ -1,4 +1,4 @@
-name: msprime 
+name: msprime
 channels:
   - conda-forge
   - bioconda

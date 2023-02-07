@@ -1,0 +1,48 @@
+#!/usr/bin/env python3
+
+"""Snakemake popgen demo pipeline
+
+AUTHORS:
+    A. Biddanda
+
+A simple demo starter repo for popgen simulations.
+"""
+
+import os
+import subprocess
+import pathlib
+from snakemake.utils import validate
+
+try:
+    label = subprocess.check_output(["git", "describe", "--always"]).strip()
+    print(f"snakemake popgen demo workflow {label}")
+except subprocess.CalledProcessError:
+    print(f"snakemake popgen workflow, version not detected!")
+
+
+# reference the config file
+configfile: "config/config.yaml"
+
+
+# validate(config, schema="schemas/config.schema.yaml")
+
+# configure shell behavior for all rules
+shell.executable("/bin/bash")
+shell.prefix("set -euo pipefail;")
+
+
+localrules:
+    all,
+
+
+rule all:
+    input:
+        expand(
+            "results/sim_data/{n}.{length}.{seed}.trees.tsz",
+            seed=config["params"]["seed"],
+            length=config["params"]["length"],
+            n=config["params"]["n"],
+        ),
+
+
+include: "rules/sims.smk"
