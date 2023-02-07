@@ -4,9 +4,9 @@ import msprime
 import tszip
 
 if __name__ == "__main__":
-    n = snakemake.params["n"]  # noqa
-    sequence_length = snakemake.params["len"]  # noqa
-    seed = snakemake.params["seed"]  # noqa
+    n = int(snakemake.params["n"])  # noqa
+    sequence_length = int(snakemake.params["length"])  # noqa
+    seed = int(snakemake.params["seed"])  # noqa
     ts = msprime.sim_ancestry(
         n,
         sequence_length=sequence_length * 1e6,

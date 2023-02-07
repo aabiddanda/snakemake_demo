@@ -30,6 +30,9 @@ configfile: "config/config.yaml"
 shell.executable("/bin/bash")
 shell.prefix("set -euo pipefail;")
 
+# Create a log directory
+pathlib.Path("logs/").mkdir(parents=True, exist_ok=True)
+
 
 localrules:
     all,
