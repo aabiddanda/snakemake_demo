@@ -13,6 +13,9 @@ rule sim_popgen_data:
         n="\d+",
         length="\d+",
         seed="\d+",
+    resources:
+        time="0:25:00",
+        mem_mb="500M",
     conda:
         "../envs/msprime.yaml"
     script:
