@@ -20,6 +20,7 @@ if __name__ == "__main__":
             "pairwise_div": pairwise_div,
             "segregating_sites": sites,
             "tajimas_d": tajimas_d,
-        }
+        },
+        index=[0],
     )
     df.to_csv(snakemake.output["tsv"], index=None, sep="\t")

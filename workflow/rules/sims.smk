@@ -44,6 +44,8 @@ rule combine_summary_stats:
     output:
         tsv="results/full_simulations.tsv",
     run:
+        import pandas as pd
+
         dfs = [pd.read_csv(i, sep="\t") for i in input.tsvs]
         tot_df = pd.concat(dfs)
-        tot_dfs.to_csv(output.tsv, sep="\t", index=None)
+        tot_df.to_csv(output.tsv, sep="\t", index=None)
