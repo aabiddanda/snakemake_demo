@@ -40,12 +40,7 @@ localrules:
 
 rule all:
     input:
-        expand(
-            "results/sim_data/{n}.{length}.{seed}.trees.tsz",
-            seed=config["params"]["seed"],
-            length=config["params"]["length"],
-            n=config["params"]["n"],
-        ),
+        "results/full_simulations.tsv",
 
 
 include: "rules/sims.smk"
