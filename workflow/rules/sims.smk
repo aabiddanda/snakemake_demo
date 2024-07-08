@@ -23,7 +23,10 @@ rule sim_popgen_data:
 
 
 rule create_summary_stats:
-    """Create some population-genetic summary statistics and store in a temporary TSV file."""
+    """
+    Create some population-genetic summary statistics
+    and store in a temporary TSV file.
+    """
     input:
         tsz="results/sim_data/{n}.{length}.{seed}.trees.tsz",
     output:

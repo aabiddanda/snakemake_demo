@@ -1,3 +1,5 @@
+"""Script to compute summary statistics."""
+
 import numpy
 import pandas as pd
 import tszip as tsz
