@@ -8,16 +8,8 @@ AUTHORS:
 A simple demo starter repo for popgen simulations.
 """
 
-import os
-import subprocess
 import pathlib
 from snakemake.utils import validate
-
-try:
-    label = subprocess.check_output(["git", "describe", "--always"]).strip()
-    print(f"snakemake popgen demo workflow {label}")
-except subprocess.CalledProcessError:
-    print(f"snakemake popgen workflow, version not detected!")
 
 
 # reference the config file
