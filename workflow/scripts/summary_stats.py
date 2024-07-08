@@ -1,4 +1,3 @@
-import msprime
 import numpy
 import pandas as pd
 import tszip as tsz
