@@ -31,6 +31,8 @@ rule create_summary_stats:
         tsz="results/sim_data/{n}.{length}.{seed}.trees.tsz",
     output:
         tsv=temp("results/sim_tsv/{n}.{length}.{seed}.sumstats.tsv"),
+    conda:
+        "../envs/msprime.yaml"
     script:
         "../scripts/summary_stats.py"
 
@@ -52,3 +54,10 @@ rule combine_summary_stats:
         dfs = [pd.read_csv(i, sep="\t") for i in input.tsvs]
         tot_df = pd.concat(dfs)
         tot_df.to_csv(output.tsv, sep="\t", index=None)
+
+
+# rule testR:
+    # output:
+        # "results/testR.csv"
+    # shell:
+#         "Rscript workflow/scripts/test.R {output}"
