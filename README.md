@@ -31,6 +31,16 @@ pip install snakemake numpy tszip tskit pandas snakemake-executor-plugin-cluster
 
 Note: this is helpful because `mamba` will automatically install `snakemake>=8.0.0` which has some key differences in how submission to a cluster is handled
 
+## Running the workflow
+
+Once all pre-requisites are installed, you can run: 
+
+```
+snakemake -j12 --cores 12 --profile profile --use-conda -p -n  
+```
+
+to setup a dryrun (remove the `--profile` if you are testing locally)
+
 ## Contact
 
 If you have any questions - please feel free to suggest fixes via an issue or submit a PR.
