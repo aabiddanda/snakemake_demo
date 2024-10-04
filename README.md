@@ -10,20 +10,26 @@ To properly get setup for running this initial `snakemake` workflow, I recommend
 
 Follow the instructions to install `mamba` into your `base` conda environment: https://mamba.readthedocs.io/en/latest/installation/mamba-installation.html
 
+2a. Create a environment from `env.yaml`:
 
-2. Create a new environment for this project
+```
+mamba env create -f env.yaml
+conda activate snakemake_demo
+```
+
+2b. Create a new environment for this project
 
 ```
 mamba create --name "snakemake_demo" python=3.11
 ```
-
-3. `pip install` the latest software for running the base-level workflow
+Then 
+`pip install` the latest software for running the base-level workflow
 
 ```
 pip install snakemake numpy tszip tskit pandas snakemake-executor-plugin-cluster-generic
 ```
 
-Note: this is helpful because it will automatically install `snakemake>=8.0.0` which has some key differences in how submission to a cluster is handled
+Note: this is helpful because `mamba` will automatically install `snakemake>=8.0.0` which has some key differences in how submission to a cluster is handled
 
 ## Contact
 
